@@ -1,0 +1,53 @@
+version: "3.9"
+
+services:
+  app:
+    build:
+      context: ./nuxt
+      dockerfile: Dockerfile
+    ports:
+      - ${NUXT_EXPOSE_PORT}:3000
+    volumes:
+      - ./nuxt:/app
+      - /app/node_modules/
+    env_file:
+      - .env
+    depends_on:
+      - server
+  server:
+    build:
+      context: ./server
+      dockerfile: Dockerfile
+    ports:
+      - ${DJANGO_EXPOSE_PORT}:8000
+    volumes:
+      - ./server:/app
+    env_file:
+      - .env
+    depends_on:
+      - db
+  db:
+    image: postgres:16
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
+    ports:
+      - ${POSTGRES_EXPOSE_PORT}:${POSTGRES_DB_PORT}
+  redis:
+    image: redis:7.2.5-alpine
+    restart: always
+    ports:
+      - ${REDIS_EXPOSE_PORT}:6379
+    command: redis-server --save 20 1 --loglevel warning --requirepass ${REDIS_PASSWORD}
+    volumes:
+      - redis:/data
+
+volumes:
+  postgres_data:
+  app:
+  server:
+  redis:
+    driver: local
