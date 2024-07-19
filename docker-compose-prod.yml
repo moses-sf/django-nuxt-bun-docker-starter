@@ -3,7 +3,7 @@ version: "3.9"
 services:
   app:
     build:
-      context: ./nuxt
+      context: ./web
       dockerfile: Dockerfile_prod
     ports:
       - ${NUXT_EXPOSE_PORT}:3000
