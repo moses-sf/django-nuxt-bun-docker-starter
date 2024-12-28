@@ -1,4 +1,4 @@
-FROM python:3.12.3-alpine as builder
+FROM python:3.13.1-alpine as builder
 LABEL authors="moses"
 
 WORKDIR /app

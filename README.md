@@ -3,7 +3,7 @@
 Generic Django-rest nuxt redis structure with docker-compose and opinionated to follow the absolute minimal basic requirements.
 Based on the following setup
 
-- Django 5.0.7 on python 3.12.3 and poetry for environment management
+- Django 5.1.4 on python 3.13.1 and poetry for environment management
 - Postgresql 16
 - Nuxt 3.12.4 on bun
 - Redis 7.2.5
