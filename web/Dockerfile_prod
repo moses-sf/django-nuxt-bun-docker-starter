@@ -1,7 +1,7 @@
 # Based on https://bun.sh/guides/ecosystem/docker and https://dev.to/devoresyah/dockerizing-nuxtjs-with-bun-5909
 # Use the official Bun image for the initial stages
 # See all versions at https://hub.docker.com/r/oven/bun/tags
-FROM oven/bun:1 as base
+FROM oven/bun:1 AS base
 LABEL authors="moses"
 WORKDIR /usr/src/app
 

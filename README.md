@@ -13,7 +13,6 @@ for production use --env-file .env.prod or suitable env file so you can separate
 2 different compose files for dev and prod are provided, with the dev server and nuxt running on volumes so hot reload is enabled.
 
 ## Setup
-1. Make a copy of the .env.template file and rename it to .env for development and .env.prod for production, fill in the required values
 2. run docker-compose with the appropriate file
 
 ## Notes

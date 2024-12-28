@@ -1,4 +1,4 @@
-FROM oven/bun as base
+FROM oven/bun AS base
 LABEL authors="moses"
 
 WORKDIR /app

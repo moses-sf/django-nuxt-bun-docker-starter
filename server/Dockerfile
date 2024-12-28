@@ -1,4 +1,4 @@
-FROM python:3.13.1-alpine as builder
+FROM python:3.13.1-alpine AS builder
 LABEL authors="moses"
 
 WORKDIR /app
@@ -14,7 +14,7 @@ RUN apk update && apk upgrade && \
 # install poetry to manage python dependencies
 RUN curl -sSL https://install.python-poetry.org | python3 -
 
-FROM builder as execution
+FROM builder AS execution
 # install python dependencies
 COPY ./pyproject.toml .
 COPY ./poetry.lock .
